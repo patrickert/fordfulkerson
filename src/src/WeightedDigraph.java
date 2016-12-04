@@ -5,39 +5,24 @@ import java.util.LinkedList;
  */
 public class WeightedDigraph {
     private final int V;
-    private double[][] matrix;
-    private static double INFINITY = Double.MAX_VALUE;
+    private int[][] matrix;
+    private static int INFINITY = Integer.MAX_VALUE;
 
     public WeightedDigraph(int v) {
         V = v;
-        initialize();
+        matrix = new int[V][V];
 
     }
 
-    public void addEdge(int origin, int destination, double weight){
+    public void addEdge(int origin, int destination, int weight) throws UnsupportedOperationException{
         if (matrix[origin][destination] != INFINITY) throw new UnsupportedOperationException("Flow already defined");
         else matrix[origin][destination] = weight;
 
     }
 
-    public double getWeightAt(int origin, int destination){
-        return matrix[origin][destination];
-    }
 
-    public int getV() {
-        return V;
-    }
 
-    private void initialize(){
-        matrix = new double[V][V];
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                matrix[i][j] = INFINITY;
-            }
-        }
-    }
-
-    private boolean bfs(double rGraph[][], int s, int t, int parent[]) {
+    private boolean bfs(int rGraph[][], int s, int t, int parent[]) {
         // Create a visited array and mark all vertices as not
         // visited
         boolean visited[] = new boolean[V];
@@ -68,7 +53,10 @@ public class WeightedDigraph {
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int s, int t) {
+    int fordFulkerson(int s, int t) throws IndexOutOfBoundsException {
+
+        if(s<0 || s>=V || t<0 || t>=V) throw new IndexOutOfBoundsException();
+
         int u, v;
 
         // Create a residual graph and fill the residual graph
@@ -79,7 +67,7 @@ public class WeightedDigraph {
         // residual capacity of edge from i to j (if there
         // is an edge. If rGraph[i][j] is 0, then there is
         // not)
-        double aux[][] = new double[V][V];
+        int aux[][] = new int[V][V];
         for (u = 0; u < V; u++) {
             for (v = 0; v < V; v++) {
                 aux[u][v] = matrix[u][v];
