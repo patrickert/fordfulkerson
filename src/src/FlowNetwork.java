@@ -1,5 +1,3 @@
-package com.company;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -71,7 +69,7 @@ public class FlowNetwork {
      * @return the number of vertices in the edge-weighted graph
      */
     public int numberOfV() {
-        return numberOfV();
+        return numberOfV;
     }
 
     /**
