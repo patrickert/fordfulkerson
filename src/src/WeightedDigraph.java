@@ -37,30 +37,24 @@ public class WeightedDigraph {
         }
     }
 
-    boolean bfs(double rGraph[][],
-                int s, int t, int parent[]) {
+    private boolean bfs(double rGraph[][], int s, int t, int parent[]) {
         // Create a visited array and mark all vertices as not
         // visited
         boolean visited[] = new boolean[V];
-        for(int i=0; i<V; ++i)
-            visited[i]=false;
+
 
         // Create a queue, enqueue source vertex and mark
         // source vertex as visited
-        LinkedList<Integer> queue = new LinkedList<Integer>();
+        LinkedList<Integer> queue = new LinkedList<>();
         queue.add(s);
         visited[s] = true;
         parent[s]=-1;
 
         // Standard BFS Loop
-        while (queue.size()!=0)
-        {
+        while (queue.size()!=0) {
             int u = queue.poll();
-
-            for (int v=0; v<V; v++)
-            {
-                if (!visited[v] && rGraph[u][v] != INFINITY)
-                {
+            for (int v=0; v<V; v++) {
+                if (!visited[v] && rGraph[u][v] != INFINITY) {
                     queue.add(v);
                     parent[v] = u;
                     visited[v] = true;
@@ -74,10 +68,7 @@ public class WeightedDigraph {
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(
-            //int graph[][],
-            int s, int t)
-    {
+    int fordFulkerson(int s, int t) {
         int u, v;
 
         // Create a residual graph and fill the residual graph
@@ -89,10 +80,12 @@ public class WeightedDigraph {
         // is an edge. If rGraph[i][j] is 0, then there is
         // not)
         double aux[][] = new double[V][V];
-
-        for (u = 0; u < V; u++)
-            for (v = 0; v < V; v++)
+        for (u = 0; u < V; u++) {
+            for (v = 0; v < V; v++) {
                 aux[u][v] = matrix[u][v];
+            }
+        }
+
 
         // This array is filled by BFS and to store path
         int parent[] = new int[V];
