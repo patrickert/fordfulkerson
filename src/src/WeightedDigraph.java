@@ -54,7 +54,7 @@ public class WeightedDigraph {
         while (queue.size()!=0) {
             int u = queue.poll();
             for (int v=0; v<V; v++) {
-                if (!visited[v] && rGraph[u][v] != INFINITY) {
+                if (!visited[v] && rGraph[u][v] != INFINITY && rGraph[u][v] > 0) {
                     queue.add(v);
                     parent[v] = u;
                     visited[v] = true;
@@ -122,5 +122,7 @@ public class WeightedDigraph {
         // Return the overall flow
         return max_flow;
     }
+
+
 
 }

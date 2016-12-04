@@ -1,34 +1,20 @@
-
-
+/**
+ * Created by patrickert on 12/3/16.
+ */
 public class Main {
-
-
     public static void main(String[] args) {
-        // create flow network with V vertices and E edges
-        int vertex = 5;
-        int edge = 5;
-        int s = 0, t = vertex-1;
-        System.out.println("HOLA");
-        FlowNetwork flowNetwork = new FlowNetwork(vertex,edge);
-        //System.out.println(flowNetwork);
+        WeightedDigraph wdg = new WeightedDigraph(6);
+        wdg.addEdge(0, 1, 16);
+        wdg.addEdge(0, 2, 13);
+        wdg.addEdge(1, 2, 10);
+        wdg.addEdge(1, 3, 12);
+        wdg.addEdge(2, 1, 4);
+        wdg.addEdge(2, 4, 14);
+        wdg.addEdge(3, 2, 9);
+        wdg.addEdge(3, 5, 20);
+        wdg.addEdge(4, 3, 7);
+        wdg.addEdge(4, 5, 4);
 
-        // compute maximum flow and minimum cut
-        FordFulkerson maxflow = new FordFulkerson(flowNetwork, s, t);
-
-
-        System.out.println("Max flow from " + s + " to " + t);
-        for (int i = 0; i < flowNetwork.numberOfV(); i++) {
-            for (FlowEdge e : flowNetwork.adj(i)) {
-                if ((i == e.from()) && e.flow() > 0)
-                    System.out.println("   " + e);
-            }
-        }
-
-        // print min-cut
-        System.out.println("Min cut: ");
-        for (int v = 0; v < flowNetwork.numberOfV(); v++) {
-            if (maxflow.inCut(v)) System.out.println(v + " ");
-        }
-        System.out.println("Max flow value = " +  maxflow.value());
+        System.out.println("Max flow = " + wdg.fordFulkerson(0, 5));
     }
 }
