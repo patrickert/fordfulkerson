@@ -15,9 +15,13 @@ public class WeightedDigraph {
     }
 
     public void addEdge(int origin, int destination, int weight) throws UnsupportedOperationException{
-        if (matrix[origin][destination] != INFINITY) throw new UnsupportedOperationException("Flow already defined");
-        else matrix[origin][destination] = weight;
+        if (checkVertex(origin,destination)) throw new IllegalArgumentException("Vertex must be > 0 and < "+V);
+        matrix[origin][destination] = weight;
+    }
 
+    public boolean checkVertex(int origin, int destination){
+        if(origin>=V || origin<0 && destination<0 || destination>=V) return true;
+        return false;
     }
 
 
