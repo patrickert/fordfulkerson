@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c4f4ecc-6b61-42ee-9da6-582b8894216e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/src/FordFulkersonGUI.class" afterPath="$PROJECT_DIR$/out/production/src/FordFulkersonGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/src/WeightedDigraph.class" afterPath="$PROJECT_DIR$/out/production/src/WeightedDigraph.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/src/FordFulkersonMain.java" afterPath="$PROJECT_DIR$/src/src/FordFulkersonMain.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/src/WeightedDigraph.java" afterPath="$PROJECT_DIR$/src/src/WeightedDigraph.java" />
     </list>
     <ignored path="fordfulkerson.iws" />
@@ -32,8 +28,8 @@
       <file leaf-file-name="WeightedDigraph.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/src/WeightedDigraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+            <state relative-caret-position="1470">
+              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -686,12 +682,12 @@
       <workItem from="1480805509687" duration="4765000" />
       <workItem from="1480860092770" duration="4689000" />
       <workItem from="1480947803175" duration="177000" />
-      <workItem from="1480948169162" duration="2370000" />
+      <workItem from="1480948169162" duration="2726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12001000" />
+    <option name="totallyTimeSpent" value="12357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="52" y="23" width="1389" height="877" extended-state="6" />
@@ -828,8 +824,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/src/WeightedDigraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+        <state relative-caret-position="1470">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding />
         </state>
       </provider>

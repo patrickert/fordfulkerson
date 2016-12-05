@@ -82,7 +82,7 @@ public class WeightedDigraph {
         // This array is filled by BFS and to store path
         int parent[] = new int[V];
 
-        int max_flow = 0;  // There is no flow initially
+        int maxFlow = 0;  // There is no flow initially
 
         // Augment the flow while tere is path from source
         // to sink
@@ -108,11 +108,11 @@ public class WeightedDigraph {
             }
 
             // Add path flow to overall flow
-            max_flow += path_flow;
+            maxFlow += path_flow;
         }
 
         // Return the overall flow
-        return max_flow;
+        return maxFlow;
     }
 
 
