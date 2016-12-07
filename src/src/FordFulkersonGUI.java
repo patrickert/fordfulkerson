@@ -33,7 +33,7 @@ public class FordFulkersonGUI {
         frame.add(p);
         JLabel sizeLabel = new JLabel("Vertices amount: ");
         JTextField size = new JTextField();
-        JButton initialize = new JButton("Create Digraph");
+        JButton initialize = new JButton("Create Flow Network");
 
         //Add components to Panel
         p.add(sizeLabel);
