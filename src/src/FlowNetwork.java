@@ -3,12 +3,12 @@ import java.util.LinkedList;
 /**
  * Created by patrickert on 12/3/16.
  */
-public class WeightedDigraph {
+public class FlowNetwork {
     private final int V;
     private int[][] matrix;
     private static int INFINITY = Integer.MAX_VALUE;
 
-    public WeightedDigraph(int v) {
+    public FlowNetwork(int v) {
         V = v;
         matrix = new int[V][V];
 
@@ -19,21 +19,18 @@ public class WeightedDigraph {
         matrix[origin][destination] = weight;
     }
 
-    public boolean checkVertex(int origin, int destination){
-        if(origin>=V || origin<0 && destination<0 || destination>=V) return true;
-        return false;
+    private boolean checkVertex(int origin, int destination){
+     return (origin>=V || origin<0 && destination<0 || destination>=V);
     }
 
 
 
     private boolean bfs(int rGraph[][], int s, int t, int parent[]) {
-        // Create a visited array and mark all vertices as not
-        // visited
+        // Create a visited array and mark all vertices as not visited
         boolean visited[] = new boolean[V];
 
 
-        // Create a queue, enqueue source vertex and mark
-        // source vertex as visited
+        // Create a queue, enqueue source vertex and mark source vertex as visited
         LinkedList<Integer> queue = new LinkedList<>();
         queue.add(s);
         visited[s] = true;
@@ -84,24 +81,30 @@ public class WeightedDigraph {
 
         int maxFlow = 0;  // There is no flow initially
 
-        // Augment the flow while tere is path from source
-        // to sink
-        while (bfs(aux, s, t, parent))
-        {
-            // Find minimum residual capacity of the edhes
-            // along the path filled by BFS. Or we can say
-            // find the maximum flow through the path found.
+        // Augment the flow while there is path from source to sink
+        while (bfs(aux, s, t, parent)) {
+            /**
+             * Find minimum residual capacity of the edges
+             *along the path filled by BFS. Or we can say
+             *find the maximum flow through the path found.
+             */
+
             double path_flow = INFINITY;
-            for (v=t; v!=s; v=parent[v])
-            {
+            for (v=t; v!=s; v=parent[v]) {
                 u = parent[v];
                 path_flow = Math.min(path_flow, aux[u][v]);
             }
 
-            // update residual capacities of the edges and
-            // reverse edges along the path
-            for (v=t; v != s; v=parent[v])
-            {
+            /**
+             * update residual capacities of the edges and reverse edges along the path.
+             * First line:
+             * This is necessary to for the BFS to check if there is a Path available between s and t.
+             * When aux[u][v] is equal to zero, there is no path.
+             * Second line:
+             * This is the reverse flow which is equal to the residual capacity.
+             */
+
+            for (v=t; v != s; v=parent[v]) {
                 u = parent[v];
                 aux[u][v] -= path_flow;
                 aux[v][u] += path_flow;

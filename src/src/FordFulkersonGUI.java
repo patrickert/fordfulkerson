@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static java.lang.Integer.parseInt;
@@ -11,7 +9,7 @@ import static java.lang.Integer.parseInt;
  */
 public class FordFulkersonGUI {
 
-    private WeightedDigraph wdg;
+    private FlowNetwork flowNetwork;
     private JPanel p;
     private JFrame frame;
     private final static int HEIGHT = 800;
@@ -42,9 +40,9 @@ public class FordFulkersonGUI {
         p.add(size);
         p.add(initialize);
 
-        //Button creates a new WeightedDigraph with desired edges amount
+        //Button creates a new FlowNetwork with desired edges amount
         initialize.addActionListener((ActionEvent) -> {
-            wdg = new WeightedDigraph(parseInt(size.getText()));
+            flowNetwork = new FlowNetwork(parseInt(size.getText()));
             addEdgeWindow();
         });
 
@@ -137,7 +135,7 @@ public class FordFulkersonGUI {
     private void calculate(int origin, int destination) {
 
         try {
-            result(wdg.fordFulkerson(origin, destination));
+            result(flowNetwork.fordFulkerson(origin, destination));
         }
         catch (IndexOutOfBoundsException e){
             fordFulkerson();
@@ -169,7 +167,7 @@ public class FordFulkersonGUI {
 
     private void addEdge(int origin, int destination, int weight) {
         try {
-            wdg.addEdge(origin, destination, weight);
+            flowNetwork.addEdge(origin, destination, weight);
             addEdgeWindow();
         }
         catch (UnsupportedOperationException e){
